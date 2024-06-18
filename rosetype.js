@@ -32,7 +32,7 @@ function draw_rosetype() {
     {
       name: '取经团队在不同季节遇到的劫难比例',
       type: 'pie',
-      radius: [50, 250],
+      radius: [50, 200],
       center: ['50%', '50%'],
       roseType: 'area',
       itemStyle: {
