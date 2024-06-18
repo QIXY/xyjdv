@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>《西游记》数据可视化</title>
+    <link href="favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://unpkg.com/textures@1.2.0/dist/textures.js"></script>
+    <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script> -->
+    <script type="text/javascript" src="echarts.js"></script>
+
+    <script type="text/javascript" src="test/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="map_bar.js"></script>
+    <script type="text/javascript" src="scatter_bar.js"></script>
+    <script type="text/javascript" src="ecStat.min.js"></script>
+    <script type="text/javascript" src="line_regression.js"></script>
+    <script type="text/javascript" src="line_regression_f.js"></script>
+    <script type="text/javascript" src="score_rank.js"></script>
+    <script type="text/javascript" src="rosetype.js"></script>
+    <script type="text/javascript" src="works_classification.js"></script>
+    <script type="text/javascript" src="sankey.js"></script>
+    <script type="text/javascript" src="sankey_movie.js"></script>
+    <script type="text/javascript" src="modelnetwork.js"></script>
+    <script type="text/javascript" src="modelpaopao.js"></script>
+    <script type="text/javascript" src="rader_time.js"></script>
+    <script type="text/javascript" src="train_pie.js"></script>
+
+    <script type="text/javascript" src="altitude_chart.js"></script>
+
+</head>
+<body>
+
+    <img src="img/头图.png" style="width:100%;"></img>
+    </div>
+    <div style="clear: both; margin-bottom: 0px; color:white;font-size:20px">
+        <p>
+            <span style="font-size: 32px;">唐僧师徒</span> 一路降妖除魔，历经九九八十一难，终于取回真经，我们详细看看唐曾师徒的取经路线以及这一路上经历的险阻、遇到的神仙。
+        </p>
+
+
+        <h1>取经队伍不断壮大</h1>
+
+        <p>唐僧肩负唐王重托，开始了漫长的出差取经旅程，经过道道关卡，取经的队伍不断壮大，陆续加入了悟空、八戒、沙僧，组成了以唐僧为首的师徒四人取经团队。</p>
+        <p>将取经途径地名按顺序展示，用唐僧师徒四人的图标表示经过这些地名的过程中取经队伍人数不断增加的过程，唐僧先后在五行山收服了孙悟空，在高老庄收服了猪八戒，在流沙河收服了沙僧，师徒四人共同经历了取经的大半路程。（拖动下方进度条可查看更多地点）</p>
+        <div class="graphlayout_m">
+            <div id="map_bar" style="text-align: center; padding-left:4%;width:85%;height:100%; "></div>
+            <div id="handle_map_bar" style="text-align: center;">
+            </div>
+        </div>
+        <p></p>
+        <h1>取经道路艰难曲折</h1>
+        <p>唐僧师徒取经之路以大唐长安为起点，最后到达天竺国大雷音寺取得真经，这条取经之路刚好绕着青藏高原兜了一大圈，除了距离，取经团队途径地的海拔高度变化，能够更真切的感受到取经团队翻山越岭的艰辛。<br><br>《西游记》小说中出现的地点在当今都有迹可循，起点大唐长安就是现在的西安，两界山大致位置为临夏，蛇盘山就是现在的乌鞘岭，浮屠山就是现在的阿尔金山脉，黄风岭大致位置在哈顺沙漠，流沙河大致位置在罗布泊，宝象国就是现在的焉耆县，乌鸡国就是现在的库车县，号山就是现在的托木尔峰，黑水河就是现在的伊塞克湖，车迟国就是现在乌兹别克斯坦的塔什干，金皘山就是现在乌兹别克斯坦的布兹嘎拉山口，祭赛国就是现在阿富汗的马扎里沙里夫，小西天就是现在阿富汗的巴米扬，那里有一座举世闻名的巴米扬大佛，朱紫国就是现在阿富汗喀布尔河流域，狮驼国大致位置在现在巴基斯坦西北部的斯瓦特河谷，比丘国就是现在的克什米尔地区，灭法国大致位置在巴基斯坦旁遮普地区，凤仙郡就是现在印度的罗兹普尔地区，终点天竺国大雷音寺就是现在印度的那烂陀。</p>
+        <div class="graphlayout_m">
+            <div id="altitude_chart" style="text-align: center; padding-left:2%;width:95%;height:100%; "></div>
+            <div id="handle_altitude_chart" style="text-align: center;">
+            </div>
+        </div>
+        <div style="padding-top: 0px; padding-bottom: 0px;">
+            <div style="display: inline-block; width:55%; padding-left:2%; text-align: center;vertical-align:top; color:grey; font-size:14px">
+                <img src="img/wordcloud.png" style="padding-top: 30px;width:100%;"></img>
+            </div>
+            <div style="padding-top: 10px; display: inline-block; width:35%; padding-left:0%; vertical-align:left">
+                <p> </p>
+                <p>我们再看81次劫难数据分析，受难地词云图显示唐僧师徒在八百里狮驼岭狮驼洞、西梁女儿国、车迟国、金皘山金皘洞、八百里号山火云洞、通天河等地方遭遇的劫难较多。</p></div>
+            <div style="clear:both"></div>
+        </div>
+        <p>对《西游记》小说中唐僧师徒遇到的劫难按季节进行统计，可以看到取经之路不仅在劫难中一次次轮回，也是在四季中一次次轮回，其中发生在春秋季节的劫难数相对较多。<br><br>不禁想起86版《西游记》电视剧片尾曲《敢问路在何方》中的那句“一番番春秋冬夏，一场场酸甜苦辣，敢问路在何方，路在脚下”。《西游记》小说的精髓在于一次次劫难的轮回与重复，这一次次的轮回与重复是相同的，也是不同的，如同乐曲卡农一般，在轮回与重复之中坚定、执着、升华。</p>
+        <div class="graphlayout">
+            <div id="rosetype" style="text-align: center; padding-left:2%;width:95%;height:100%; "></div>
+            <div id="handle_altitude_chart" style="text-align: center;">
+            </div>
+        </div>
+
+        <p>
+            在取经路上的重重关卡中，唐僧师徒遇到了很多神佛、人类和妖怪，将师徒四人在每个途径地遇到的神佛数量、人类数量和妖怪数量用折线图表示，并通过饼图展示每个地点遇到的各类角色的数量占比（鼠标悬停在折线图上，显示对应的饼图占比）。<br><br>我们可以看到，总的来看神佛还是多于妖怪，如同生活中办法总比困难多，挺一挺，总能过去。
+        </p>
+        <div class="graphlayout">
+            <div id="scatter_bar" style="text-align: center; width:100%;height:100%; "></div>
+            <div id="handle_scatter_bar" style="text-align: center;">
+            </div>
+        </div>
+
+        <p>
+            我们将受难地按时间排序作为横轴，将劫难次数与妖怪数分别用气泡图表示，不难看出，妖怪越多，对应的劫难次数相对就越多，几个较大的气泡相对平均的分布在取经的历程中。<br><br>而在这些劫难中，有的，需要战胜敌人；还有的，需要战胜自己：比如唐僧在女儿国的遭遇。<br><br>战胜敌人更难还是战胜自己更难？大概每个人心中都有不同的答案。在不同的境地，两种都是我们每个人需要面对的考验。</p>
+        
+        <div class="graphlayout">
+            <div id="modelpaopao" style="text-align: center; padding-left:7%; width:85%;height:100%; "></div>
+            <div id="handle_modelpaopao" style="text-align: center;">
+            </div>
+        </div>
+
+        <h1>取经途中神妖皆有</h1>
+
+        <p>对《西游记》中的主要角色关系进行梳理，关联关系越多的角色对应的圆圈越大，四种不同的颜色分别代表取经团队、神佛、人类和妖怪。
+        </p>
+        <div class="graphlayout_h">
+            <div id="modelnetwork" style="padding-left:10%; width:80%;height:100%; "></div>
+            <div id="handle_modelnetwork" style="text-align: center;">
+            </div>
+        </div>
+        
+
+        <p>西游记中有名有姓的妖怪可以按照不同出身进行分类，包括：无背景、灵山背景、道家背景、神仙背景、坐骑下凡、宠物下凡等。对几种分类的占比数据进行可视化，可以看到没有背景的妖怪占比最多，其次是灵山背景。
+        </p>
+        <div class="graphlayout">
+            <div id="train_pie" style="text-align: center; padding-left:4%;width:90%;height:100%; "></div>
+            <div id="handle_train_pie" style="text-align: center;">
+            </div>
+        </div>
+        <p>除了第一类无背景的，其余几类都可以看作是有背景的（此处的“背景”为中性词）。</p>
+        <p>有背景的妖精相对于无背景的妖精更容易存活。在被打死的妖精中，只有两个是有背景的(分别为灵山背景和道家背景)，其余都是无背景的.<br>再看一下不同类别妖精的结局，我们可以看出雄性妖精更容易存活，活着的雄性占比明显高于妖精总数中雄性的占比，这或多或少与古代男尊女卑的思想有关，默认男性妖怪的战斗力更强，不容易被打死。</p>
+        <div class="graphlayout">
+            <div id="sankey" style="padding-left:10%; width:90%;height:90%; "></div>
+            <div id="handle_sankey" style="text-align: center;">
+            </div>
+        </div>
+        <h1>《西游记》小说译本与相关影视作品</h1>
+        <p>《西游记》小说中唐僧的原型是玄奘法师，小说讲述的故事原型就是中国唐代高僧玄奘于如今的“一带一路”丝绸之路上波澜壮阔的求法、弘法故事，在400多年的传播中，《西游记》小说在“一带一路”国家广为流传，被翻译成16种语言，小说版本多达60个。<br>《西游记》中灿烂绚丽的艺术想象、性格鲜明的人物、跌宕起伏的故事情节，为东亚、东南亚以及南亚等佛教流行地区的人们所津津乐道，同时，也为中亚、中东欧的国家和人民所广泛接受。</p>
+        <div style="text-align: center;">
+        <iframe src="https://dycharts.com/xshow/index.html?id=c_69be0b65c37581d51ec1867463cd9b88" width="1200" height="510" scrolling="no" frameborder="0" align=""></iframe>
+        </div>
+        <p>迄今为止，根据《西游记》小说拍摄的相关影视作品达百余部，上映、播出和演出地覆盖多个国家和地区，可以说，《西游记》是世界文学中的一个流量大IP。<br>汇总豆瓣网上有评分的影视作品数据进行分析，评分最高的两部作品分别是1986版电视剧《西游记》和1961年的动画片《大闹天宫》，经过时间的沉淀，评分9分以上的作品都是经典中的经典。</p>
+        <div class="graphlayout">
+            <div id="score_rank" style="text-align: center;padding-left:5%; width:85%;height:100%; "></div>
+            <div id="handle_score_rank" style="text-align: center;">
+            </div>
+        </div>
+        <p>根据豆瓣网上有评分的影视作品信息进行统计分类，可以看出除了中国之外，日本、韩国、以及欧美多个国家都曾上映和播出过《西游记》小说相关影视作品。（鼠标点击旭日图中的区块查看子分类，点击中心区域回到父分类）</p>
+        <div class="graphlayout">
+            <div id="works_classification" style="text-align: center;padding-left:10%; width:75%;height:95%; "></div>
+            <div id="handle_works_classification" style="text-align: center;">
+            </div>
+        </div>
+        <p>对这些影视作品按年代、拍摄国家、类型进行分类，用桑基图进行展现，可以看出最近20多年里《西游记》小说相关影视作品产出数量较多。<br>在国外拍摄的《西游记》相关影视作品中，日本拍摄的数量较多，拍摄起始时期较早，时间跨度也较大，说明《西游记》小说和西游文化在日本尤其受欢迎。</p>
+        <div class="graphlayout">
+            <div id="sankey_movie" style="padding-left:10%; width:90%;height:90%; "></div>
+            <div id="handle_sankey_movie" style="text-align: center;">
+            </div>
+        </div>
+        <p>将拍摄年份与当年国内剧集/电影得分最高值数据汇总做散点图，并且拟合出得分趋势线，可以看到，无论是剧集还是电影，随着时间的推移，作品的得分都有越来越低的趋势。<br>我们分别在两张图上定位出最高得分和最低得分，不难发现最高得分的经典作品都出现在早期。<br>同时，电影得分分布更离散，从2.5分到9.4分不等。</p>
+        <div class="graphlayout">
+            <div id="line_regression" style="text-align: center; width:90%;height:90%; "></div>
+            <div id="handle_line_regression" style="text-align: center;">
+            </div>
+        </div>
+        <div class="graphlayout">
+            <div id="line_regression_f" style="text-align: center; width:90%;height:90%; "></div>
+            <div id="handle_line_regression_f" style="text-align: center;">
+            </div>
+        </div>
+            <div style="display:block; clear: both; margin-bottom: 100px; color:white;">
+                <h1>结语</h1>
+                <p>
+                    唐僧师徒历经九九八十一难终于取得真经，“81”只是一个象征性的数字，如同歌中所唱“踏平坎坷成大道，斗罢艰险又出发”，人生是一次次的面对，一次次的跨越，一次次的告别，一次次的感悟，斗罢艰险，面对下一个艰险，愿我们都有不变的勇气和坚定，一次次的，又出发。<br>《西游记》的故事不断被翻译、改编、改写成各个民族语言的作品，各国文学家用各种体裁进行演绎，如今的电影、电视、动漫、游戏等多种现代艺术形式仍在从《西游记》中汲取营养，它不断给世人带来深刻的启示和感悟。中华文化作为世界上唯一从未中断、绵延至今的文化，蕴藏着取之不尽的宝藏，这是中华文化独有的优势。
+                </p>
+                <h2>参考资料</h2>
+                <p style=" padding-top: 10px;font-size:18px">1. 西游记小说.
+                    <br>2. 豆瓣.
+                    <br>3. 《西游记》的漫漫“西游”路（文学新观察·四大名著在“一带一路”）.
+                </p>
+        
+                
+
+            </div>
+            <div style="padding-left:50%; width:11%; ">
+                <img src="img/logo.jpg" style="width:100%;opacity:0.8"></img>
+                <p style="padding-top: 10px;font-size:18px">生活加蜜不加密</p>
+                <p><br><br></p>
+            </div>
+        </div>
+
+
+
+
+        <script>
+            draw_mapbar();
+            draw_altitudechart();
+            draw_rosetype();
+            draw_trainpie();
+            draw_scatterbar();
+            draw_lineregression();
+            draw_lineregression_f();
+            draw_score_rank();
+            draw_works_classification();
+            draw_sankey();
+            draw_sankey_movie();
+            draw_modelnetwork();
+            modelpaopao();
+            draw_radertime();
+            draw_trainpie();
+        </script>
+
+</body>
+
+</html>
