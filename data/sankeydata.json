@@ -1,0 +1,29 @@
+{"nodes": [
+      
+      {"name": "宠物下凡"},
+      {"name": "道家背景"},
+      {"name": "灵山背景"},
+      {"name": "神仙背景"},
+      {"name": "无背景"},
+      {"name": "坐骑下凡"},
+      {"name": "雄性"},
+      {"name": "雌性"},
+      {"name": "活"},
+      {"name": "死"}
+   ],
+   "links": [
+     
+{"source":"宠物下凡","target":"活","value":1},
+{"source":"道家背景","target":"活","value":2},
+{"source":"道家背景","target":"死","value":1},
+{"source":"灵山背景","target":"活","value":9},
+{"source":"灵山背景","target":"死","value":1},
+{"source":"神仙背景","target":"活","value":2},
+{"source":"无背景","target":"活","value":10},
+{"source":"无背景","target":"死","value":26},
+{"source":"坐骑下凡","target":"活","value":2},
+{"source":"活","target":"雌性","value":4},
+{"source":"死","target":"雌性","value":7},
+{"source":"活","target":"雄性","value":22},
+{"source":"死","target":"雄性","value":21}
+   ]}
